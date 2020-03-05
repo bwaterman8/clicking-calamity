@@ -25,7 +25,7 @@ describe('Cookie Clicker', ()=>{
         });
         it('Clicking companion subtracts 5 clicks from count', () => {
             underTest.clickCompanionPurchase();
-            expect(underTest.clickCount).toBe(-50);
+            expect(underTest.clickCount).toBe(-100);
         });
     });
 });

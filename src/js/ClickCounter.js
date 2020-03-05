@@ -1,6 +1,6 @@
 class ClickCount {
     constructor() {
-        this.companionCost = 50;    
+        this.companionCost = 100;    
         this.clickCount = 0;
     }
 
@@ -16,5 +16,8 @@ class ClickCount {
     }
     clickCompanionPurchase() {
        this.clickCount -= this.companionCost;
+    }
+    additionalClickingCompanions() {
+
     }
 }
