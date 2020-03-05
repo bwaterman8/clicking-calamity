@@ -23,9 +23,13 @@ describe('Cookie Clicker', ()=>{
             underTest.clickCompanion();
             expect(underTest.clickCount).toBe(1);
         });
-        it('Clicking companion subtracts 5 clicks from count', () => {
+        it('Clicking companion subtracts 100 clicks from count', () => {
             underTest.clickCompanionPurchase();
             expect(underTest.clickCount).toBe(-100);
+        });
+        it('Purchasing each clicking companion increases the cost by ten percent', () => {
+            underTest.increaseClickingCompanionsCost();
+            expect(underTest.companionCost).toBe(110);
         });
     });
 });

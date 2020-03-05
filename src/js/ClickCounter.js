@@ -17,7 +17,7 @@ class ClickCount {
     clickCompanionPurchase() {
        this.clickCount -= this.companionCost;
     }
-    additionalClickingCompanions() {
-
+    increaseClickingCompanionsCost() {
+        this.companionCost = Math.round(1.1 * this.companionCost);
     }
 }
