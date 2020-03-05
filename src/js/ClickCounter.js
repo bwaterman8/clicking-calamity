@@ -32,9 +32,16 @@ class ClickCount {
     }
     culminationCompounder() {
         this.culminationCount++;
+        if(this.culminationCompounderPurchase) {
+            this.clickCount = 1.2;
+        }
     }
     culminationCompounderPurchase() {
         this.clickCount -= this.culminationCost;
+        this.increaseCulminationCompounderCost;
+        if (this.clickCount >= this.culminationCost) {
+            this.culminationCost = Math.round(1.1 * this.culminationCost)
+        }
     }
     increaseCulminationCompounderCost() {
         this.culminationCost = Math.round(1.1 * this.culminationCost);
