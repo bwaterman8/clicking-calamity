@@ -21,7 +21,7 @@ describe('Cookie Clicker', ()=>{
         })
         it('Clicking companion should record clicks', () => {
             underTest.clickCompanion();
-            expect(underTest.clickCount).toBe(1);
+            expect(underTest.companionCount).toBe(1);
         });
         it('Clicking companion subtracts 100 clicks from count', () => {
             underTest.clickCompanionPurchase();
@@ -31,5 +31,19 @@ describe('Cookie Clicker', ()=>{
             underTest.increaseClickingCompanionsCost();
             expect(underTest.companionCost).toBe(110);
         });
+        it('Clicking companions add to the click count', () => {
+            underTest.clickCompanionAddsToClickCount();
+            expect(underTest.clickCount).toBe(1)
+        });
+    describe('Culmination Companion', () => {
+        it('Culmination companion should record clicks', () => {
+            underTest.culminationCompanion();
+            expect(underTest.culminationCount).toBe(1);
+        });
+        it('Culmination companion subtracts 10 clicks from count', () => {
+            underTest.culminationCompanionPurchase();
+            expect(underTest.clickCount).toBe(-10);
+        });
+    });
     });
 });
