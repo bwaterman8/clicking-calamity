@@ -30,10 +30,13 @@ class ClickCount {
     clickCompanionAddsToClickCount() {
         this.clickCount++ + this.companionCount++;
     }
-    culminationCompanion() {
+    culminationCompounder() {
         this.culminationCount++;
     }
-    culminationCompanionPurchase() {
+    culminationCompounderPurchase() {
         this.clickCount -= this.culminationCost;
+    }
+    increaseCulminationCompounderCost() {
+        this.culminationCost = Math.round(1.1 * this.culminationCost);
     }
 }
