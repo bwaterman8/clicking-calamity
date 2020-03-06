@@ -52,6 +52,10 @@ describe('Cookie Clicker', ()=>{
             underTest.culminationCompounder();
             expect(underTest.clickCount).toBe(1.2);
         })
+        it('Culmination compounder grows companion click count exponentially', () => {
+            underTest.culminationCompounder();
+            expect(underTest.companionCount).toBe(1.2);
+        });
     });
     });
 });

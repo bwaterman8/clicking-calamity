@@ -7,8 +7,12 @@ class ClickCount {
         this.culminationCost = 10;
     }
 
+    clickCookie() {
+        this.clickCount += 1 * this.valueMultiplier;
+    }
+
     countClick() {
-        this.clickCount++;
+       return this.clickCount++;
     }
 
     clickCompanionCount() {
@@ -34,6 +38,9 @@ class ClickCount {
         this.culminationCount++;
         if(this.culminationCompounderPurchase) {
             this.clickCount += 1 * this.valueMultiplier();
+        }
+        if (this.culminationCompounderPurchase) {
+            this.companionCount += 1 * this.valueMultiplier();
         }
     }
     valueMultiplier() {
