@@ -42,11 +42,11 @@ function cookieCountUpdater() {
     cookieCounting.innerText= runGame.countClick();
 }
 function companionCountUpdater() {
-    const companionCounting = document.querySelector('companion_count');
+    const companionCounting = document.querySelector('.companion_count');
     companionCounting.innerText= runGame.clickCompanionCount();
 }
 function compounderCountUpdater() {
-    const compounderCounting = document.querySelector('.compounder_count');
+    const compounderCounting = document.querySelector('.culmination_count');
     compounderCounting.innerText= runGame.culminationCompounderCount();
 }
 

@@ -6,7 +6,11 @@ class ClickCount {
         this.culminationCount = 0;
         this.culminationCost = 10;
     }
-
+    activateCompanion() {
+        for(let i = 0; i<this.clickCompanionCount; i++) {
+            this.clickCookie();
+        }
+    }
     clickCookie() {
         this.clickCount += 1 * this.valueMultiplier;
     }
