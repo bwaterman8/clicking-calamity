@@ -34,6 +34,9 @@ class ClickCount {
     clickCompanionAddsToClickCount() {
         this.clickCount++ + this.companionCount++;
     }
+    culminationCompounderCount() {
+        return 0;
+    }
     culminationCompounder() {
         this.culminationCount++;
         if(this.culminationCompounderPurchase) {

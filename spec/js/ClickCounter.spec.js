@@ -36,6 +36,9 @@ describe('Cookie Clicker', ()=>{
             expect(underTest.clickCount).toBe(1)
         });
     describe('Culmination Compounder', () => {
+        it('Culmination compounder count should begin at 0', () =>{
+            expect(underTest.culminationCompounderCount()).toBe(0);
+        })
         it('Culmination compounder should record clicks', () => {
             underTest.culminationCompounder();
             expect(underTest.culminationCount).toBe(1);
