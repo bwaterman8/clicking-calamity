@@ -49,8 +49,15 @@ function compounderCountUpdater() {
     const compounderCounting = document.querySelector('.culmination_count');
     compounderCounting.innerText= runGame.culminationCompounderCount();
 }
-
-// var i = 0
-// function countCookies() {
-//     document.getElementById('output').innerHTML = i++ +1;
-// }
+document.querySelector('.modal_one_open').addEventListener('click', ()=> {
+    document.querySelector('.modal_one_background').style.display = 'flex';
+})
+document.querySelector('.modal_one_close').addEventListener('click', ()=> {
+    document.querySelector('.modal_one_background').style.display = 'none';
+})
+document.querySelector('.modal_two_open').addEventListener('click', ()=> {
+    document.querySelector('.modal_two_background').style.display = 'flex';
+})
+document.querySelector('.modal_two_close').addEventListener('click', ()=> {
+    document.querySelector('.modal_two_background').style.display = 'none';
+})
