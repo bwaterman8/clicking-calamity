@@ -99,14 +99,15 @@ document.querySelector('.culmination_button').addEventListener('click', culminat
 document.querySelector('.cookie_button').innerText= `Click for cookies! Click Value: ${valueMultiplier}`;
 document.querySelector('.companion_button').innerText= `Click for a clicking companion! Companion cost: ${companionCost}`;
 document.querySelector('.culmination_button').innerText= `Click for a culmination compounder! Compounder cost: ${culminationCost}`;
+
 document.querySelector('.culmination_button').addEventListener('click', culminationClickDecreasesClickCount);
 document.querySelector('.culmination_button').addEventListener('click', culminationClickIncreasesCulminationCost);
+document.querySelector('.culmination_button').addEventListener('click', culminationClickIncreasesClickValue);
 
 
 function cookieClick() {
-    clickCount++;
+    clickCount += valueMultiplier;
     document.querySelector('.cookies_count').innerText = clickCount;
-
 }
 function companionClick() {
     companionCount++;
@@ -120,7 +121,11 @@ function culminationClickDecreasesClickCount() {
     clickCount -= culminationCost;
     document.querySelector('.cookies_count').innerText = clickCount;
 }
-function culminationClickIncreasesCulminationCost () {
+function culminationClickIncreasesCulminationCost() {
     culminationCost++;
     document.querySelector('.culmination_button').innerText = `Click for a culmination compounder! Compounder cost: ${culminationCost}`;
+}
+function culminationClickIncreasesClickValue() {
+    valueMultiplier++;
+    document.querySelector('.cookie_button').innerText= `Click for cookies! Click Value: ${valueMultiplier}`;
 }
