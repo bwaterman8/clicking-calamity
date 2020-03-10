@@ -85,7 +85,7 @@ document.querySelector('.modal_two_close').addEventListener('click', ()=> {
     document.querySelector('.modal_two_background').style.display = 'none';
 })
 
-document.querySelector('.cookies_count').innerText = clickCount;
+document.querySelector('.cookies_count').innerText = clickCount.toFixed(2);
 document.querySelector('.companion_count').innerText = companionCount;
 document.querySelector('.culmination_count').innerText = culminationCount;
 
@@ -110,19 +110,26 @@ document.querySelector('.companion_button').addEventListener('click', autoClickC
 
 
 function cookieClick() {
-    clickCount += valueMultiplier;
+    (clickCount += valueMultiplier).toFixed(2);
     document.querySelector('.cookies_count').innerText = clickCount;
+    
 }
 function companionClick() {
-    companionCount++;
+    if(clickCount >= companionCost) {companionCount++;
     document.querySelector('.companion_count').innerText = companionCount;
+    }
 }
 function culminationClick() {
-    culminationCount++;
+    if(clickCount >= culminationCost) {culminationCount++;
     document.querySelector('.culmination_count').innerText = culminationCount;
+    }
 }
 function culminationClickDecreasesClickCount() {
-    clickCount -= culminationCost;
+    if(clickCount >= culminationCost) {clickCount -= culminationCost;
+    }
+    if(clickCount < 0) {
+        clickCount = 0;
+    }
     document.querySelector('.cookies_count').innerText = clickCount;
 }
 function culminationClickIncreasesCulminationCost() {
@@ -130,36 +137,25 @@ function culminationClickIncreasesCulminationCost() {
     document.querySelector('.culmination_button').innerText = `Click for a culmination compounder! Compounder cost: ${culminationCost}`;
 }
 function culminationClickIncreasesClickValue() {
-    valueMultiplier = valueMultiplier + (culminationCount * 0.2);
-    document.querySelector('.cookie_button').innerText= `Click for cookies! Click Value: ${valueMultiplier}`;
+    valueMultiplier = valueMultiplier + culminationCount * 0.2;
+    document.querySelector('.cookie_button').innerText= `Click for cookies! Click Value: ${valueMultiplier.toFixed(2)}`;
 }
 function companionClickDecreasesClickCount() {
-    clickCount -= companionCost;
+    if(clickCount >= companionCost) {clickCount -= companionCost;
+    }
+    if(clickCount < 0) {
+        clickCount = 0;
+    }
     document.querySelector('.cookies_count').innerText = clickCount;
 }
 function companionClickIncreasesCompanionCost() {
-    companionCost++;
+    if(clickCount >= companionCost) {companionCost++;
     document.querySelector('.companion_button').innerText = `Click for a clicking companion! Companion cost: ${companionCost}`;
 }
-// function companionClicksOncePerSecond() {
-//     const click = document.querySelector('.cookie_button');
-//     click.onClick = clickTheButton;
-// }
-// function clickTheButton() {
-//     setInterval(()=> {
-//         200;
-//     })
-// }
-
+}
 function autoClickCount() {
     clickCount += companionCount * valueMultiplier;
-    document.querySelector('.cookies_count').innerText = clickCount;
+    document.querySelector('.cookies_count').innerText = clickCount.toFixed(2);
 }
 setInterval(autoClickCount, 1000);
-// setInterval(() => {
-    // clickCount += companionCount * valueMultiplier;
-//     console.log("testTestTest")
-//     for (let i = 0; i < companionCount; i++){
-//         cookieClick();
-//     }
-// }, 1000)
+
