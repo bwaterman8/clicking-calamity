@@ -69,7 +69,7 @@ let companionCount = 0;
 let culminationCount = 0;
 let companionCost = 100;
 let culminationCost = 10;
-let valueMultiplier = Math.pow(1.2, clickCount);
+let valueMultiplier = 1;
 
 document.querySelector('.modal_one_open').addEventListener('click', ()=> {
     document.querySelector('.modal_one_background').style.display = 'flex';
@@ -104,6 +104,10 @@ document.querySelector('.culmination_button').addEventListener('click', culminat
 document.querySelector('.culmination_button').addEventListener('click', culminationClickIncreasesCulminationCost);
 document.querySelector('.culmination_button').addEventListener('click', culminationClickIncreasesClickValue);
 
+document.querySelector('.companion_button').addEventListener('click', companionClickDecreasesClickCount);
+document.querySelector('.companion_button').addEventListener('click', companionClickIncreasesCompanionCost);
+document.querySelector('.companion_button').addEventListener('click', autoClickCount);
+
 
 function cookieClick() {
     clickCount += valueMultiplier;
@@ -126,6 +130,36 @@ function culminationClickIncreasesCulminationCost() {
     document.querySelector('.culmination_button').innerText = `Click for a culmination compounder! Compounder cost: ${culminationCost}`;
 }
 function culminationClickIncreasesClickValue() {
-    valueMultiplier++;
+    valueMultiplier = valueMultiplier + (culminationCount * 0.2);
     document.querySelector('.cookie_button').innerText= `Click for cookies! Click Value: ${valueMultiplier}`;
 }
+function companionClickDecreasesClickCount() {
+    clickCount -= companionCost;
+    document.querySelector('.cookies_count').innerText = clickCount;
+}
+function companionClickIncreasesCompanionCost() {
+    companionCost++;
+    document.querySelector('.companion_button').innerText = `Click for a clicking companion! Companion cost: ${companionCost}`;
+}
+// function companionClicksOncePerSecond() {
+//     const click = document.querySelector('.cookie_button');
+//     click.onClick = clickTheButton;
+// }
+// function clickTheButton() {
+//     setInterval(()=> {
+//         200;
+//     })
+// }
+
+function autoClickCount() {
+    clickCount += companionCount * valueMultiplier;
+    document.querySelector('.cookies_count').innerText = clickCount;
+}
+setInterval(autoClickCount, 1000);
+// setInterval(() => {
+    // clickCount += companionCount * valueMultiplier;
+//     console.log("testTestTest")
+//     for (let i = 0; i < companionCount; i++){
+//         cookieClick();
+//     }
+// }, 1000)
