@@ -114,3 +114,9 @@ ul li {
     flex-direction: row;
     justify-content: space-evenly;
 }
+
+.reset_button {
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+}
